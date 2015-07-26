@@ -22,4 +22,18 @@ describe('BitField.js', function() {
     assert(!f.check(257));
     assert(f.check(258));
   });
+
+  it('should wipe field', function() {
+    f.set(1);
+    f.set(3);
+    f.set(46);
+    f.set(1024);
+
+    f.wipe();
+
+    assert(!f.check(1));
+    assert(!f.check(3));
+    assert(!f.check(46));
+    assert(!f.check(1024));
+  });
 });
