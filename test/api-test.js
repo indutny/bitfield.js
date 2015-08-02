@@ -36,4 +36,22 @@ describe('BitField.js', function() {
     assert(!f.check(46));
     assert(!f.check(1024));
   });
+
+  it('should `or` with other field', function() {
+    f.set(1);
+    f.set(3);
+
+    var other = new Field(2048);
+    other.set(2000);
+    other.set(7);
+    other.set(64);
+
+    f.or(other);
+
+    assert(f.check(1));
+    assert(f.check(3));
+    assert(f.check(7));
+    assert(f.check(64));
+    assert(f.check(2000));
+  });
 });
