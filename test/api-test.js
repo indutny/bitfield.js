@@ -54,4 +54,15 @@ describe('BitField.js', function() {
     assert(f.check(64));
     assert(f.check(2000));
   });
+
+  it('should `grow`', function() {
+    f.set(1);
+    f.set(3);
+
+    f.grow(2048);
+
+    f.set(2000);
+    assert(f.check(3));
+    assert(f.check(2000));
+  });
 });
