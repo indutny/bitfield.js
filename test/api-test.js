@@ -65,4 +65,16 @@ describe('BitField.js', function() {
     assert(f.check(3));
     assert(f.check(2000));
   });
+
+  it('should clone', function() {
+    f.set(257);
+    f.set(13);
+    f.set(258);
+    f.clear(257);
+
+    var c = f.clone();
+    assert(c.check(258));
+    c.clear(13);
+    assert(f.check(13));
+  });
 });
